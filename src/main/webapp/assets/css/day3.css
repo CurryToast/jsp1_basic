@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+body > ul {
+	min-width: 800px;
+	padding: 0;
+}
+
+.list-header > li {
+	font-size: 1.1rem;
+	font-weight: 800;
+}
+
+ul > li > ul {
+	display: grid;
+	border-bottom: 1px solid black;
+	padding: 5px 2px;
+}
+
+ul > li > ul:not(.list-header) {
+	margin-left: 2px;
+}
+
+ul > li > ul.customers {
+	grid-template-columns: 2fr 1fr 1fr 4fr 3fr;
+}
+ul > li > ul.products {
+	grid-template-columns: 2fr 1fr 3fr 2fr;
+}
+ul > li > ul.buys {
+	grid-template-columns: 2fr 2fr 3fr 2fr 1fr 2fr;
+}
+
+ul > li > ul:not(.list-header) > li {
+	margin-left: 1px;
+}

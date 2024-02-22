@@ -13,14 +13,41 @@ import java.util.Map;
 import project.vo.ProductVo;
 
 public class TblProductDao {
-    private static final String URL ="jdbc:oracle:thin:@//localhost:1521/xe";
+	private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+    private static final String URL ="jdbc:oracle:thin:@localhost:1521/xe";
     private static final String USERNAME = "c##iidev";
     private static final String PASSWORD = "123456";
 
     private Connection getConnection() throws SQLException {
+    	try {
+			Class.forName(DRIVER);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 
+    
+    public int addProduct(ProductVo vo) {
+    	int result = 0;
+    	String sql = "INSERT INTO TBL_PRODUCT tp VALUES (?, ?, ?, ?)";
+    	
+    	try (
+            Connection connection = getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+        ) {
+            ps.setString(1, vo.getPcode());
+            ps.setString(2, vo.getCategory());
+            ps.setNString(3, vo.getPname());
+            ps.setInt(4, vo.getPrice());
+            result = ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("상품 등록 실패 : " + e.getMessage());
+        }
+    	
+    	return result;
+    }
 
     public List<ProductVo> selectAllProduct() {
         String sql = "select * from tbl_product";

@@ -27,7 +27,8 @@ public class TblCustomerDao {
     }
 
     // 회원 가입
-    public void join(CustomerVo vo) {
+    public int join(CustomerVo vo) {
+    	int result = 0;
         String sql = "Insert into tbl_custom (custom_id, name, email, age, reg_date) values (?,?,?,?,sysdate)";
 
         try (
@@ -38,11 +39,13 @@ public class TblCustomerDao {
             pstmt.setString(2, vo.getName());
             pstmt.setString(3, vo.getEmail());
             pstmt.setInt(4, vo.getAge());
-            pstmt.executeUpdate();
+            result = pstmt.executeUpdate();
         } catch (SQLException e) {
             // customid와 pcode는 참조 테이블의 존재하는 값으로 해야합니다. => 무결성
             System.out.println("회원가입 실패 " + e.getMessage());
         }
+        
+        return result;
     }
 
     // 회원 정보 수정

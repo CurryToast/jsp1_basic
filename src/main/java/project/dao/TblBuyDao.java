@@ -14,11 +14,18 @@ import project.vo.BuyVo;
 import project.vo.CustomerBuyVo;
 
 public class TblBuyDao {
-    private static final String URL ="jdbc:oracle:thin:@//localhost:1521/xe";
+	private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+    private static final String URL ="jdbc:oracle:thin:@localhost:1521/xe";
     private static final String USERNAME = "c##iidev";
     private static final String PASSWORD = "123456";
 
     private Connection getConnection() throws SQLException {
+    	try {
+			Class.forName(DRIVER);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 
@@ -120,6 +127,39 @@ public class TblBuyDao {
         }
 
         return result;
+    }
+    
+    public List<CustomerBuyVo> selectAllBuyList() {
+        List<CustomerBuyVo> list = new ArrayList<CustomerBuyVo>();
+
+        String sql = "SELECT BUY_IDX, tb.CUSTOMID, tp.PCODE, PNAME, PRICE, QUANTITY, BUY_DATE \r\n" + //
+                "FROM TBL_BUY tb \r\n" + //
+                "JOIN TBL_PRODUCT tp \r\n" + //
+                "ON tb.PCODE = tp.PCODE \r\n" + //
+                "ORDER BY BUY_DATE DESC";
+
+        try (
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+        ) {
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                list.add(new CustomerBuyVo(
+                    rs.getInt("buy_idx"),
+                    rs.getString("customid"),
+                    rs.getString("pcode"),
+                    rs.getString("pname"),
+                    rs.getInt("price"),
+                    rs.getInt("quantity"),
+                    rs.getTimestamp("buy_date")
+                ));
+            }
+        } catch (SQLException e) {
+            System.out.println("내 구매정보 조회 실패 : " + e.getMessage());
+        }
+
+        return list;
     }
 
     // MyPage 기능 메소드
