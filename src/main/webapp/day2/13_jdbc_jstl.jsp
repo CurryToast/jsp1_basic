@@ -62,7 +62,7 @@
 				<td> <c:out value="${vo.name}"></c:out> </td>
 				<td> <c:out value="${vo.age}"></c:out> </td>
 				<td> <c:out value="${vo.email}"></c:out> </td>
-				<td> <fmt:formatDate value="${vo.reg_date}" pattern="yyyy-mm-dd"/> </td>
+				<td> <fmt:formatDate value="${vo.reg_date}" pattern="yyyy-MM-dd"/> </td>
 			</tr>
 		</c:forEach>
 	</table>
