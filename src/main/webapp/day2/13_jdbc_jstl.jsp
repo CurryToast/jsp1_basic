@@ -56,6 +56,10 @@
 			<th>이메일</th>
 			<th>등록일</th>
 		</tr>
+		<!--
+			el 기호는 지정된 이름 list 애트리뷰트를 가져오는 동작
+			pageContext.getAttribute(list)
+		-->
 		<c:forEach items="${list}" var="vo" varStatus="status">
 			<tr>
 				<td> <c:out value="${fn:toUpperCase(vo.customId)}"></c:out> </td>
