@@ -13,7 +13,7 @@ body > ul {
 	padding: 0;
 }
 
-.list-header > li {
+.list-header > ul > li {
 	font-size: 1.1rem;
 	font-weight: 800;
 }
@@ -24,7 +24,7 @@ ul > li > ul {
 	padding: 5px 2px;
 }
 
-ul > li > ul:not(.list-header) {
+ul > li:not(.list-header) > ul {
 	margin-left: 2px;
 }
 
@@ -38,6 +38,6 @@ ul > li > ul.buys {
 	grid-template-columns: 2fr 2fr 3fr 2fr 1fr 2fr;
 }
 
-ul > li > ul:not(.list-header) > li {
+ul > li:not(.list-header) > ul > li {
 	margin-left: 1px;
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "mybatis-3-mapper.dtd">
+
+<mapper namespace="tblproducts">
+	<!-- 리턴타입이 List일 때에는 제너릭타입만 설정하면 됩니다. -->
+	<select id="selectAll" resultType="ProductDto">
+		select * from tbl_product
+	</select>
+	<select id="selectByCategory" parameterType="String" resultType="ProductDto">
+		SELECT * FROM TBL_PRODUCT WHERE CATEGORY = #{category} ORDER BY PNAME
+	</select>
+	<select id="selectByPname" parameterType="String" resultType="ProductDto">
+		SELECT * FROM TBL_PRODUCT WHERE PNAME LIKE '%' || #{pname} || '%' ORDER BY CATEGORY
+	</select>
+	<insert id="insert" parameterType="ProductDto">
+		INSERT INTO TBL_PRODUCT VALUES (#{pcode},#{category},#{pname},#{price})
+	</insert>
+</mapper>

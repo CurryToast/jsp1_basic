@@ -14,8 +14,8 @@
 	<h3>구매 전체 조회</h3>
 	<hr>
 	<ul>
-		<li>
-			<ul class="buys list-header">
+		<li class="list-header">
+			<ul class="buys">
 				<li>구매코드</li>
 				<li>상품코드</li>
 				<li>상품명</li>

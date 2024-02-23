@@ -14,8 +14,8 @@
 	<h3>상품 전체 조회</h3>
 	<hr>
 	<ul>
-		<li>
-			<ul class="products list-header">
+		<li class="list-header">
+			<ul class="products">
 				<li>상품코드</li>
 				<li>카테고리</li>
 				<li>상품명</li>

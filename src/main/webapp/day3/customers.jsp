@@ -15,8 +15,8 @@
 	<hr>
 	<!-- list라는 이름의 애트리뷰트가 필요함 => 애트리뷰트 저장은 서블릿에서 합니다. -->
 	<ul>
-		<li>
-			<ul class="customers list-header">
+		<li class="list-header">
+			<ul class="customers">
 				<li> 고객 아이디 </li>
 				<li> 이름 </li>
 				<li> 나이 </li>

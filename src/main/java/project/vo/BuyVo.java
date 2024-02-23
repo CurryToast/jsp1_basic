@@ -2,6 +2,7 @@ package project.vo;
 
 import java.sql.Date;
 
+
 public class BuyVo {
     private int buy_idx;
     private String customid;

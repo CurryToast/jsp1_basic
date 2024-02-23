@@ -29,7 +29,7 @@ public class TblProductDao {
     }
 
     
-    public int addProduct(ProductVo vo) {
+    public int insert(ProductVo vo) {
     	int result = 0;
     	String sql = "INSERT INTO TBL_PRODUCT tp VALUES (?, ?, ?, ?)";
     	
