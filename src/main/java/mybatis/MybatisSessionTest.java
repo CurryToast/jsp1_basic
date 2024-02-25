@@ -6,7 +6,6 @@ import day4.mybatis.dao.MybatisBuyDao;
 import day4.mybatis.dao.MybatisCustomerDao;
 import day4.mybatis.dao.MybatisProductDao;
 import day4.mybatis.dto.BuyDto;
-import day4.mybatis.dto.CustomerBuyDto;
 import day4.mybatis.dto.CustomerDto;
 import day4.mybatis.dto.ProductDto;
 
@@ -77,7 +76,7 @@ public class MybatisSessionTest {
 		System.out.println(list);
 		
 		System.out.println("===== selectById 테스트 =====");
-		List<CustomerBuyDto> list2 = dao.selectById("mina012");
+		List<BuyDto> list2 = dao.selectById("mina012");
 		System.out.println(list2);
 	}
 }

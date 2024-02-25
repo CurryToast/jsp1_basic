@@ -16,7 +16,7 @@
 	<select id="selectAll" resultType="BuyDto">
 		select * from tbl_buy order by buy_date desc
 	</select>
-	<select id="selectById" parameterType="String" resultType="CustomerBuyDto">
+	<select id="selectById" parameterType="String" resultType="BuyDto">
 		SELECT BUY_IDX, tp.PCODE, PNAME, PRICE, QUANTITY, BUY_DATE FROM TBL_BUY tb JOIN TBL_PRODUCT tp ON tb.PCODE = tp.PCODE WHERE tb.CUSTOMID = #{customid} ORDER BY BUY_DATE DESC
 	</select>
 	<!-- insert, update, delete는 리턴 타입 지정 안합니다. (그래도 값은 리턴해줍니다.) -->

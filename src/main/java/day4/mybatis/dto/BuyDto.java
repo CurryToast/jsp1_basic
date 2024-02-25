@@ -16,6 +16,8 @@ public class BuyDto {
 	private int buy_idx;
     private String customid;
     private String pcode;
+    private String pname;
+    private int price;
     private int quantity;
     private Date buy_date;
 

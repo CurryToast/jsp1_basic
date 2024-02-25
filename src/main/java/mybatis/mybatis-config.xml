@@ -15,7 +15,6 @@
   		<typeAlias type="day4.mybatis.dto.CustomerDto" alias="CustomerDto"/>
   		<typeAlias type="day4.mybatis.dto.ProductDto" alias="ProductDto"/>
   		<typeAlias type="day4.mybatis.dto.BuyDto" alias="BuyDto"/>
-  		<typeAlias type="day4.mybatis.dto.CustomerBuyDto" alias="CustomerBuyDto"/>
   </typeAliases>
   
   <!--  db 연결정보 -->
