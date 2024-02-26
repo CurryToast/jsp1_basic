@@ -19,13 +19,11 @@ import project.vo.ProductVo;
 @WebServlet(urlPatterns = {"/products.cc"}, description = "상품 전체 조회")
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(ProductServlet.class);
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TblProductDao dao = new TblProductDao();
 		List<ProductVo> list = dao.selectAllProduct();
-		logger.info("::: 상품 전체 조회 :::\n{}", list);
 		
 		request.setAttribute("list", list);
 		
