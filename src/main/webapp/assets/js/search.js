@@ -26,10 +26,7 @@ const submitCallback = () => {
 	}
 };
 
-document.querySelectorAll('.list-header > ul > li').forEach(el => el.addEventListener('click', (e) => {
-	let queryParams = new URLSearchParams(location.href);
-	queryParams.append('column', e.target.className);
-}));
+
 document.querySelector('select[name="category"]').addEventListener("change", submitCallback);
 document.getElementById("search").addEventListener("click", submitCallback);
 document.getElementById("selectAll").addEventListener("click", () => {
