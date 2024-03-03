@@ -30,22 +30,22 @@ public class productSearchServlet extends HttpServlet {
 		String desc = req.getParameter("desc");
 		
 		Map<String, Object> map = new HashMap<>();
-		if (category != null && !category.isEmpty()) {
+		if (category != null && category.isEmpty() == false) {
 			map.put("category", category);
 			req.setAttribute("category", category);
 		}
-		if (keyword != null && !keyword.isEmpty()) {
+		if (keyword != null && keyword.isEmpty() == false) {
 			map.put("keyword", keyword);
 			req.setAttribute("keyword", keyword);
 		}
 		if (
-			from != null && !from.isEmpty() &&
-			to != null && !to.isEmpty()
+			from != null && from.isEmpty() == false &&
+			to != null && to.isEmpty() == false
 		) {
 			map.put("from", from);
 			map.put("to", to);
 		}
-		if (column != null && !column.isEmpty()) {
+		if (column != null && column.isEmpty() == false) {
 			map.put("column", column);
 			
 			if (desc != null && desc.equals("desc")) {
